@@ -1,0 +1,15 @@
+- if @articles.blank?
+  %p Il n'y a pas encore d'articles dans la base de données.
+- else
+  %p Voici les articles présents pour le moment.
+  %ul#articles
+    - @articles.each do |a|
+      %li
+        = link_to a.title, {:action => 'show', :id => a.id}
+        %b
+          = link_to 'Mettre à jour', {:action => 'edit', :id => a.id}
+        %b
+          = link_to "Supprimer", {:action => 'delete', :id => a.id},    |
+            :confirm => "Etes vous sûr de vouloir supprimer cet article?" |    
+%p= link_to "Ajouter un nouvel article", {:action => 'new' }
+

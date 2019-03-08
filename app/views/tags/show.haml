@@ -1,0 +1,24 @@
+%section.jumbotron.text-center
+  .container
+    %h3.jumbotron-heading= @tag.name
+%hr{:width => "70%"}/
+.nav-scroller.py-1.mb-2
+  %nav.nav.d-flex.justify-content-between
+  - @tags.each do |tag|
+    %a.p-2.text-muted=link_to tag.name 
+.album.py-5.bg-light
+  .container
+    .row
+      - @articles.each do |a|
+        .col-md-4
+          .card.mb-4.shadow-sm
+            = image_tag(a.image, class: "img bd-placeholder-img card-img-top", height: "50%", width: "50%","aria-label" => "Placeholder: Thumbnail", :focusable => "false", :preserveaspectratio => "xMidYMid slice", :role => "img", :xmlns => "http://www.w3.org/2000/svg")
+            .card-body.card-yellow
+              %p.card-text
+                =link_to a.title, article_path(a.id)
+              %p.justify-content-between.align-items-center
+                Tags : 
+                =render a.tags
+              %small.text-muted
+                =a.created_at.strftime("%d-%m-%Y")
+= link_to 'Retour', articles_path, class: "btn btn-default btn-danger"

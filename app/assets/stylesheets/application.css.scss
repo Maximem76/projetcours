@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require trix
+ */
+
+
+
+$orange: #FF914D;
+$green:  #80A300;
+$white:  #FFEAA4;
+$yellow: #FFDE59 ;
+
+$primary: $green;
+
+$jumbotron-bg: $white;
+$jumbotron-padding: 2rem;
+
+$font-size-base: 1rem;
+$font-size-lg: $font-size-base * 2.00;
+$font-size-sm: $font-size-base * .875;
+
+$navbar-light-color:                $orange;
+$navbar-light-hover-color:          rgba($orange, .7);
+$navbar-light-active-color:         rgba($orange, .9);
+$navbar-light-disabled-color:       rgba($orange, .3);
+$navbar-light-toggler-border-color: rgba($orange, .1);
+
+$navbar-dark-color:                 rgba($yellow, .5);
+$navbar-dark-hover-color:           rgba($yellow, .75);
+$navbar-dark-active-color:          $yellow;
+$navbar-dark-disabled-color:        rgba($yellow, .25);
+$navbar-dark-toggler-border-color: rgba($yellow, .1);
+
+
+.nav-zelda{
+  margin-left: 40px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+.margination{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.jumbotron-heading{
+  color: $orange;
+}
+.album {
+  background-color: #FFEAA4 !important;
+}
+
+.bg-navbar{
+  background-color: #FFDE59 !important;
+}
+
+.card-yellow{
+  background-color: #FFDE59 !important;
+}
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+@import "/*";
+@import "bootstrap";
+@import "font-awesome";
+@import "tether";
+
+
+
+
+

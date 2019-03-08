@@ -1,0 +1,37 @@
+-if current_user.admin == true
+  
+  .jumbotron
+    %h1.display-4 Edition de l'article 
+    #{@article.title }
+    %hr
+  = form_for @article, :url =>{:action => "update", :id =>@article}, :html => {:class => "form-horizontal center"} do |f|
+    .form-group
+      = f.label :title, "Titre:", class: "col-md-4 control-label"
+      .col-md-8
+        = f.text_field :title, class: "form-control"
+    .form-group
+      = f.label :body, "Corps de texte:", class: "col-md-4 control-label"
+      .col-md-8
+        = f.hidden_field :body, class: "form-control", id:"editor"
+        %trix-editor{:input => "editor"}
+    .form-group
+      = f.label :tag_list, "Tags:", class: "col-md-4 control-label"
+      .col-md-8
+        = f.text_field :tag_list, class: "form-control"
+    .custome-file
+      = f.label :image, "Miniature:", class: "col-md-4 control-label"
+      .col-md-8
+        = f.file_field :image, class: "file-control"
+    .form-group
+      = f.label :author, "Auteur:", class: "col-md-4 control-label"
+      .col-md-8
+        = f.text_field :author, class: "form-control"
+        = f.hidden_field :user_id, class: "form-control"
+    .form-group
+      .col-md-8
+      = f.submit "Mettre à jour", class: "btn btn-default btn-primary" 
+      = link_to 'Retour', articles_path, class: "btn btn-default btn-danger"
+-else
+  %p
+  %h2.col-md-7.bg-info Vous n'êtes pas autorisé à être sur cette page
+  = link_to 'Retour', articles_path, class: "btn btn-default btn-danger"

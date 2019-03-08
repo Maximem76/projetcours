@@ -1,0 +1,17 @@
+Ecrire un commentaire
+  %hr
+= form_for @comment, :url=> {:action => 'create', :id =>@comment}, :html => {:class => "form-horizontal center"} do |f|
+  .form-group
+    = f.label :body, "Corps de texte:", class: "col-md-4 control-label"
+    .col-md-8
+      = f.hidden_field :body, class: "form-control", id:"editor"
+      %trix-editor{:input => "editor"}
+  .form-group
+    = f.label :author, "Auteur:", class: "col-md-4 control-label"
+    .col-md-8
+      = f.text_field :author, class: "form-control"
+      = f.hidden_field :user_id, class: "form-control"
+  .form-group
+    .col-md-8
+  = f.submit "Créer", class: "btn btn-default btn-primary" 
+  = link_to 'Retour', articles_path, class: "btn btn-default btn-danger"

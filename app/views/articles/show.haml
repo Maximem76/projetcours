@@ -1,0 +1,21 @@
+%article
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        %h1.margination= @article.title
+        %p=sanitize @article.body
+        %a{:href => "#"}
+        %p 
+          %strong Auteur :
+          $#{@article.author}
+          %br/
+          %strong Date de création :
+          = @article.created_at
+          %br/
+          %strong Tags :
+          = render @article.tags
+  %hr/
+= link_to 'Retour', articles_path, class: "btn btn-default btn-success"
+-if current_user.admin == true
+  =link_to "Editer un article", edit_article_path, class:'btn btn-default warning'
+  =link_to "Supprimer un article", articles_path, class:'btn btn-default btn-danger'

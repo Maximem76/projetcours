@@ -1,0 +1,16 @@
+.jumbotron
+  %h1 Chat
+  #chatbox.well{:style => "height: 250px; border: solid 1px #222222; overflow-y: scroll"}
+    - @messages.each do |message|
+      = render 'messages/message', message: message
+  -if current_user
+    = form_with model: @message do |f|
+      .input-group.mb-3
+        = f.text_field :body, placeholder: 'Ecrire un message', class: 'form-control'
+        .input-group-append
+          = f.submit "Send", class: 'btn btn-secondary', id: 'btnsubmit'
+  -else
+    %p{:style => "text-align:center"}
+    Vous devez être 
+    =link_to "connecté", new_user_session_path 
+    pour pouvoir écrire.
